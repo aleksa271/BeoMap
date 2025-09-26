@@ -16,7 +16,7 @@ def data():
     return jsonify({
         "Zemun": {"temp": 22, "air": "Dobar"},
         "Novi Beograd": {"temp": 23, "air": "Umeren"},
-        "Vračar": {"temp": 25, "air": "Loš"}
+        "VRAČAR": {"temp": 25, "air": "Loš"}
     })
 
 if __name__ == "__main__":
