@@ -10,6 +10,11 @@ export default function BelgradeMap() {
   const [geoData, setGeoData] = useState(null);
   const [info, setInfo] = useState({});
   const [selected, setSelected] = useState(null);
+  
+const bounds = [
+  [43.6, 19.4], // jugozapad (više dole)
+  [45.6, 21.3]  // severoistok (više gore)
+];
 
   useEffect(() => {
     fetch("http://127.0.0.1:5000/api/geojson")
@@ -38,7 +43,7 @@ export default function BelgradeMap() {
   };
 
   return (
-    <MapContainer center={[44.8176, 20.4569]} zoom={6} minZoom={8} maxZoom={16} style={{ height: "90vh", width: "100%" }}>
+    <MapContainer center={[44.8176, 20.4569]} zoom={9} minZoom={9} maxZoom={16} maxBounds={bounds} maxBoundsViscosity={0.4} style={{ height: "90vh", width: "100%" }}>
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       {geoData && <GeoJSON data={geoData} style={styleFeature} onEachFeature={onEachFeature} />}
     </MapContainer>
