@@ -1,12 +1,14 @@
 import React from "react";
 import logo from "../logo-inverse.svg"
-function OpstinaCard({ opstina }) {
+function OpstinaCard({ opstina, onClose, closing}) {
 
+  if(!opstina) return null;
+ 
   return (
-    <div className="card" style={{ width: "18rem", position: "absolute", top: 200, right: 20, zIndex: 1000, borderRadius: "20px"}}>
+    <div className={`card opstina-card ${closing ? "closing" : ""}`} style={{ width: "18rem", position: "absolute", top: 200, right: 20, zIndex: 1000, borderRadius: "20px"}}>
       <img src={logo} className="card-img-top" alt="Logo" />
       <div className="card-body">
-        <h5 className="card-title">Title </h5>
+        <h5 className="card-title">{opstina.name}</h5>
         <p className="card-text">Sadrzaj</p>
       </div>
       <ul className="list-group list-group-flush">
@@ -25,6 +27,7 @@ function OpstinaCard({ opstina }) {
     "--bs-btn-font-size": ".75rem"
     
   }}
+  onClick={onClose}
 >
   Zatvori
 </button>
