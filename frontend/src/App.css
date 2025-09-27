@@ -42,7 +42,6 @@
   /* background-color: red; */
   color: white;
   transition: all 0.4 ease-in;
-  border-radius: 50px;
 }
 
 .btn-outline-red:hover {
