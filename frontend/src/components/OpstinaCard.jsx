@@ -6,15 +6,14 @@ function OpstinaCard({ opstina, onClose, closing}) {
  
   return (
     <div className={`card opstina-card ${closing ? "closing" : ""}`} style={{ width: "18rem", position: "absolute", top: 200, right: 20, zIndex: 1000, borderRadius: "20px"}}>
-      <img src={logo} className="card-img-top" alt="Logo" />
+      <img src={opstina.slika} className="card-img-top" alt={opstina.name} />
       <div className="card-body">
         <h5 className="card-title">{opstina.name}</h5>
-        <p className="card-text">Sadrzaj</p>
       </div>
       <ul className="list-group list-group-flush">
-        <li className="list-group-item">Populacija: </li>
-        <li className="list-group-item">Povrsina: km²</li>
-        <li className="list-group-item">Ostalo...</li>
+        <li className="list-group-item">Populacija: {opstina.populacija} </li>
+        <li className="list-group-item">Povrsina: {opstina.povrsina} ha</li>
+        <li className="list-group-item">Temp: {opstina.temp}  Vazduh: {opstina.air}</li>
       </ul>
       <div className="card-body">
         <a href="#" className="card-link">Vise informacija</a>
