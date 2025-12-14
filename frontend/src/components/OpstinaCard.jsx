@@ -5,7 +5,7 @@ function OpstinaCard({ opstina, onClose, closing}) {
   if(!opstina) return null;
  
   return (
-    <div className={`card opstina-card ${closing ? "closing" : ""}`} style={{ width: "18rem", position: "absolute", top: 200, right: 20, zIndex: 1000, borderRadius: "20px"}}>
+    <div className={`card opstina-card ${closing ? "closing" : ""}`} style={{ width: "18rem", position: "absolute", top: 200, right: 20, zIndex: 1000, borderRadius: "5px"}}>
       <img src={opstina.slika} className="card-img-top" alt={opstina.name} />
       <div className="card-body">
         <h5 className="card-title">{opstina.name}</h5>
@@ -16,7 +16,7 @@ function OpstinaCard({ opstina, onClose, closing}) {
         <li className="list-group-item">Temp: {opstina.temp}  Vazduh: {opstina.air}</li>
       </ul>
       <div className="card-body">
-        <a href="#" className="card-link">Vise informacija</a>
+        <a href={opstina.url} className="card-link" target="_blank" rel="noopener noreferrer">Vise informacija</a>
         <button
   type="button"
   className="btn btn-danger rounded-pill ms-5 btn-outline-red "
