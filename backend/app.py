@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, send_file
+from flask import Flask, jsonify, send_file, request
 from flask_cors import CORS
 import os
 
@@ -34,5 +34,46 @@ def data():
 
     })
 
+users = {
+    "admin": {"id": 1, "password": "admin123", "name": "Administrator"},
+    "user": {"id": 2, "password": "user123", "name": "Korisnik"}
+}
+
+favorites = {
+    1: [],
+    2: []
+}
+
+@app.route("/login", methods=["POST"])
+def login():
+    data = request.json
+    user = users.get(data["username"])
+
+    if not user or user["password"] != data["password"]:
+        return jsonify({"error": "Greska u logovanju"}), 401
+    
+    return jsonify({
+        "userId": user["id"],
+        "name": user["name"]
+    })
+
+@app.route("/favorites", methods=["GET"])
+def get_favorites():
+    user_id = int(request.args.get("userId"))
+    return jsonify(favorites[user_id])
+
+@app.route("/favorites", methods=["POST"])
+def add_favorite():
+    data = request.json
+    user_id = data["userId"]
+    opstina = data["opstina"]
+
+    if opstina not in favorites[user_id]:
+        favorites[user_id].append(opstina)
+
+    return jsonify(favorites[user_id])
+
 if __name__ == "__main__":
     app.run(debug=True)
+
+

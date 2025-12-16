@@ -3,6 +3,26 @@ import logo from "../logo-inverse.svg"
 function OpstinaCard({ opstina, onClose, closing}) {
 
   if(!opstina) return null;
+
+  const handleAddFavorite = () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!user) {
+      alert("Morate biti ulogovani da biste dodali omiljenu opstinu");
+      return;
+    }
+
+    fetch("http://localhost:5000/favorites", {
+      method: "POST",
+      headers: { "Content-Type": "application/json"},
+      body: JSON.stringify({
+        userId: user.userId,
+        opstina: opstina.name
+      })
+    })
+      .then(res => res.json())
+      .then(() => alert("Opština dodata u omiljene ⭐"));
+  }
  
   return (
     <div className={`card opstina-card ${closing ? "closing" : ""}`} style={{ width: "18rem", position: "absolute", top: 200, right: 20, zIndex: 1000, borderRadius: "5px"}}>
@@ -17,6 +37,10 @@ function OpstinaCard({ opstina, onClose, closing}) {
       </ul>
       <div className="card-body">
         <a href={opstina.url} className="card-link" target="_blank" rel="noopener noreferrer">Vise informacija</a>
+        <button
+          className="btn btn-sm btn-outline-primary"
+          onClick={handleAddFavorite}
+        > ⭐</button>
         <button
   type="button"
   className="btn btn-danger rounded-pill ms-5 btn-outline-red "
