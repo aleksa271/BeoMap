@@ -11,13 +11,40 @@ export default function Profile() {
 
         fetch(`http://localhost:5000/favorites?userId=${user.userId}`)
         .then(res => res.json())
-        .then(setFavorites);
-    }, []);
+        .then(setFavorites)
+        .catch(err => console.error("Fetch error:", err));
+    }, [user]);
 
     const handleLogout = () => {
         localStorage.removeItem("user");
         navigate("/login");
     };
+
+    const handleRemoveFavorite = async (opstina) => {
+        try {
+            const res = await fetch("http://localhost:5000/favorites", {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    userId: user.userId,
+                    opstina: opstina
+                })
+            });
+
+            if (!res.ok) {
+                throw new Error("Neuspesno brisanje");
+            }
+
+            setFavorites(prev =>
+                prev.filter(o => o !== opstina)
+            );
+        } catch (err) {
+            console.error("Delete error:", err);
+            alert("Greska pri brisanju favorita")
+        }
+    }
 
 
     if (!user) return <p>Niste ulogovani</p>;
@@ -36,7 +63,19 @@ export default function Profile() {
 
             <ul className="list-group">
                 {favorites.map(o => (
-                    <li key={o} className="list-group-item">{o}</li>
+                    <li 
+                        key={o} 
+                        className="list-group-item"
+                        >
+                    
+                        {o}
+                        <button
+                        className="btn btn-sm btn-outline-danger"
+                        onClick={() => handleRemoveFavorite(o)}
+                    >
+                            Ukloni
+                        </button>
+                    </li>
                 ))}
             </ul>
         </div>

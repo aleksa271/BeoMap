@@ -4,7 +4,7 @@ function OpstinaCard({ opstina, onClose, closing}) {
 
   if(!opstina) return null;
 
-  const handleAddFavorite = () => {
+  const handleAddFavorite = async () => {
     const user = JSON.parse(localStorage.getItem("user"));
 
     if (!user) {
@@ -12,18 +12,29 @@ function OpstinaCard({ opstina, onClose, closing}) {
       return;
     }
 
-    fetch("http://localhost:5000/favorites", {
-      method: "POST",
-      headers: { "Content-Type": "application/json"},
-      body: JSON.stringify({
-        userId: user.userId,
-        opstina: opstina.name
-      })
-    })
-      .then(res => res.json())
-      .then(() => alert("Opština dodata u omiljene ⭐"));
-  }
- 
+    try {
+      const res = await fetch("http://localhost:5000/favorites", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userId: user.userId,
+          opstina: opstina.name
+        })
+      });
+
+      if (!res.ok) {
+        const error = await res.json();
+        alert(`Greska: ${error.error} || "Neuspesno dodavanje favorite"}`);
+        return;
+      }
+
+      alert("Opstina odata u omiljene ⭐");
+    } catch (err) {
+      console.error(err);
+      alert("Greska pri povezivanju sa serverom");
+    }
+  };
+    
   return (
     <div className={`card opstina-card ${closing ? "closing" : ""}`} style={{ width: "18rem", position: "absolute", top: 200, right: 20, zIndex: 1000, borderRadius: "5px"}}>
       <img src={opstina.slika} className="card-img-top" alt={opstina.name} />
