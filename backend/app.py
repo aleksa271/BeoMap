@@ -85,7 +85,7 @@ with app.app_context():
         "ZVEZDARA": {"temp": 22, "air": "Umeren", "populacija": 150000, "povrsina" : 3165, "slika" : "/slike/zvezdara.jpeg", "url": "https://zvezdara.org.rs"},
         "LAZAREVAC": {"temp": 21, "air": "Umeren", "populacija": 62000, "povrsina" : 38351, "slika" : "/slike/lazarevac.jpeg", "url": "https://lazarevac.rs/"},
         "MLADENOVAC": {"temp": 21, "air": "Umeren", "populacija": 56389, "povrsina" : 33900, "slika" : "/slike/mladenovac.jpeg", "url": "https://mladenovac.rs"},
-        "OBRENOVAC": {"temp": 221, "air": "Umeren", "populacija": 75949, "povrsina" : 40995, "slika" : "/slike/obrenovac.jpeg", "url": "https://obrenovac.rs"},
+        "OBRENOVAC": {"temp": 21, "air": "Umeren", "populacija": 75949, "povrsina" : 40995, "slika" : "/slike/obrenovac.jpeg", "url": "https://obrenovac.rs"},
         "PALILULA (BEOGRAD)": {"temp": 21, "air": "Umeren", "populacija": 180000, "povrsina" : 44661, "slika" : "/slike/palilula.jpeg", "url": "https://palilula.org.rs"},
         "RAKOVICA": {"temp": 21, "air": "Umeren", "populacija": 97752, "povrsina" : 3036, "slika" : "/slike/rakovica.jpeg", "url": "https://rakovica.rs"},
         "SAVSKI VENAC": {"temp": 23, "air": "Umeren", "populacija": 47682, "povrsina" : 1400, "slika" : "/slike/savski_venac.jpeg", "url": "https://savskivenac.rs"},

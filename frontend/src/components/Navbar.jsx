@@ -15,7 +15,6 @@ const MyNavbar = () => {
           <Nav className="ms-auto">
             <Nav.Link href="/">Pocetna</Nav.Link>
             <Nav.Link href="/about">O nama</Nav.Link>
-            <Nav.Link href="/favorites">Favoriti</Nav.Link>
             <NavDropdown title="Nalog" id="basic-nav-dropdown">
               <NavDropdown.Item href="/login">Login</NavDropdown.Item>
               <NavDropdown.Item href="/profile">Profil</NavDropdown.Item>

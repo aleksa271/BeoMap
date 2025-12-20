@@ -2,10 +2,14 @@ import React, { useEffect, useState } from "react";
 import { MapContainer, TileLayer, GeoJSON, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import OpstinaCard from "./OpstinaCard";
+import OpstinaCardMobile from "./OpstinaCardMobile";
 
 const defaultStyle = { fillColor: "lightblue", weight: 1, color: "black", fillOpacity: 0.6 };
 const hoverStyle = { fillColor: "orange", weight: 2, color: "black", fillOpacity: 0.8 };
 const selectedStyle = { fillColor: "red", weight: 2, color: "black", fillOpacity: 0.8 };
+const isMobile = window.matchMedia("(max-width: 480px)").matches;
+
+
 
 function ZoomToBounds({ bounds }) {
   const map = useMap();
@@ -61,6 +65,8 @@ export default function BelgradeMap() {
     setSelectedBounds(null);
   };
 
+  
+
   return (
     <div style={{ display: "flex", position: "relative" }}>
       <div style={{ flex: 1 }}>
@@ -80,10 +86,20 @@ export default function BelgradeMap() {
       </div>
 
       {selected && (
-        <OpstinaCard 
-          opstina={selected} 
-          onClose={handleCloseCard} 
-        />
+        selected && (
+          isMobile ? (
+            <OpstinaCardMobile
+              opstina={selected}
+              onClose={handleCloseCard}
+            />
+          ) : (
+            <OpstinaCard
+              opstina={selected}
+              onClose={handleCloseCard}
+            />
+          )
+        )
+
       )}
     </div>
   );

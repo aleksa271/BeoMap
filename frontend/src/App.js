@@ -6,6 +6,7 @@ import OpstinaCard from "./components/OpstinaCard";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import About from "./pages/About";
 import "./App.css"
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<BelgradeMap />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </BrowserRouter>
   );
