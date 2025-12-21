@@ -7,7 +7,7 @@ export default function BelgradeClock() {
         const updateTime = () => {
             const now = new Date();
             const belgradeTime = new Intl.DateTimeFormat("sr-RS", {
-                timeZOne: "Europe/Belgrade",
+                timeZone: "Europe/Belgrade",
                 hour: "2-digit",
                 minute: "2-digit",
                 second: "2-digit"
@@ -23,7 +23,7 @@ export default function BelgradeClock() {
     }, []);
 
     return (
-        <span style={{ fontFamily: "monospace"}}>
+        <span className="belgrade-clock">
             🕒 {time}
         </span>
     );

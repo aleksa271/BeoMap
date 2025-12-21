@@ -47,13 +47,13 @@ export default function Profile() {
     }
 
 
-    if (!user) return <p>Niste ulogovani</p>;
+    if (!user) return <p style={{ textAlign:"center", color:"#D34E4E", fontWeight:"bold"}}>⚠️ Niste ulogovani</p>;
 
     return (
-        <div className="container mt-4">
+        <div className="container mt-4" style={{color: "#CE7E5A"}}>
             <h3>Profil: {user.name}</h3>
 
-            <button className="btn btn-danger mb-3" onClick={handleLogout}>
+            <button className="btn btn-danger mb-3" style={{backgroundColor:"#CE7E5A"}}onClick={handleLogout}>
                 Logout
             </button>
 
@@ -65,12 +65,12 @@ export default function Profile() {
                 {favorites.map(o => (
                     <li 
                         key={o} 
-                        className="list-group-item"
+                        className="list-group-item" style={{backgroundColor: "#F9E7B2"}}
                         >
                     
                         {o}
                         <button
-                        className="btn btn-sm btn-outline-danger"
+                        className="btn btn-sm btn-outline-danger" style={{backgroundColor: "#CE7E5A", marginLeft: "0.5rem"}}
                         onClick={() => handleRemoveFavorite(o)}
                     >
                             Ukloni

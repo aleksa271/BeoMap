@@ -28,6 +28,37 @@
   color: #61dafb;
 }
 
+.custom-navbar {
+  background-color: 
+#F9E7B2;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.custom-navbar .navbar-brand:hover {
+  color: 
+#D34E4E
+
+
+}
+
+.custom-navbar .nav-link:hover {
+  color: 
+#D34E4E
+
+;
+}
+
+.custom-navbar .dropdown-menu {
+  background-color: #F9E7B2;
+  border: none;
+  border-radius: 12px;
+  padding: 0.5rem 0;
+}
+
+.custom-navbar .dropdown-item:hover {
+  background-color: #F9E7B2;
+  color:#D34E4E
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -57,6 +88,7 @@
   right: 20px;
   z-index: 1000;
   border-radius: 20px;
+  background-color: #F9E7B2;
 
   /* Animacija */
   opacity: 0;
@@ -64,6 +96,47 @@
   animation: fadeInUp 0.4s ease forwards;
 }
 
+.opstina-card .list-group-item {
+  background-color: #F9E7B2;
+}
+
+.opstina-card .card-link {
+  color: #D34E4E;
+}
+
+.belgrade-clock {
+  font-family: monospace,Arial, Helvetica, sans-serif;
+  color:
+#CE7E5A
+;
+  font-weight: 600;
+}
+
+/* O nama */
+.about-page {
+  background-color:
+#F9E7B2 ;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0, 0.2);
+  
+}
+
+body {
+  background-color: #DDC57A;
+}
+
+.about-page h2 {
+  font-weight: 700;
+  color: 
+#CE7E5A
+}
+
+.about-page h4 {
+  margin-top: 1.5rem;
+  font-weight: 600;
+  color: 
+#CE7E5A;
+}
 
 @keyframes fadeInUp {
   to {
@@ -97,7 +170,7 @@
   align-items: center;
 
   padding: 0.5rem 0.75rem;
-  background: #f5f5f5;
+  background: #F9E7B2;
 }
 
 .opstina-card-mobile h6 {

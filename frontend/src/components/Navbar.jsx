@@ -4,7 +4,7 @@ import BelgradeClock from "./BelgradeClock";
 
 const MyNavbar = () => {
   return (
-    <Navbar bg="light" expand="lg" sticky="top">
+    <Navbar expand="lg" sticky="top" className="custom-navbar">
       <Container>
         <Navbar.Brand href="/">BeoMap</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

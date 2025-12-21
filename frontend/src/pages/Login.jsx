@@ -27,7 +27,7 @@ const handleLogin = async (e) => {
 };
 
 return (
-    <form onSubmit={handleLogin} className="container mt-5" style={{ maxWidth:400 }}>
+    <form onSubmit={handleLogin} className="container mt-5" style={{ maxWidth:400, color: "#CE7E5A"}}>
         <h3>Login</h3>
 
         <input
@@ -43,7 +43,7 @@ return (
             onChange={e => setPassword(e.target.value)}
         />
 
-        <button className="btn btn-primary w-100">Login</button>
+        <button className="btn btn-primary w-100" style={{backgroundColor: "#CE7E5A"}}>Login</button>
     </form>
 );
 
