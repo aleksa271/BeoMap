@@ -82,15 +82,15 @@
 }
 
 .opstina-card {
-  width: 18rem;
-  position: absolute;
-  top: 200px;
+  position: fixed;
+  top: 90px;   
   right: 20px;
   z-index: 1000;
+
+  width: 18rem;
   border-radius: 20px;
   background-color: #F9E7B2;
 
-  /* Animacija */
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.4s ease forwards;

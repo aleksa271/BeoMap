@@ -36,7 +36,7 @@ function OpstinaCard({ opstina, onClose, closing}) {
   };
     
   return (
-    <div className={`card opstina-card ${closing ? "closing" : ""}`} style={{ width: "18rem", position: "absolute", top: 200, right: 20, zIndex: 1000, borderRadius: "5px"}}>
+    <div className={`card opstina-card ${closing ? "closing" : ""}`}>
       <img src={opstina.slika} className="card-img-top" alt={opstina.name} />
       <div className="card-body">
         <h5 className="card-title">{opstina.name}</h5>
